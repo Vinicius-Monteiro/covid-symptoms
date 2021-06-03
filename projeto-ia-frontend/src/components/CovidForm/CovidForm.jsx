@@ -82,20 +82,20 @@ const CovidForm = () => {
             checked: nasalCongestion,
             setChecked: setNasalCongestion,
         },
-        {
-            title: "Você apresenta secreção nasal ?",
-            leftSideSwitch: "Não",
-            rightSideSwitch: "Sim",
-            checked: runnyNose,
-            setChecked: setRunnyNose,
-        },
-        {
-            title: "Você apresenta diarreia ?",
-            leftSideSwitch: "Não",
-            rightSideSwitch: "Sim",
-            checked: diarrhea,
-            setChecked: setDiarrhea,
-        },
+        // {
+        //     title: "Você apresenta secreção nasal ?",
+        //     leftSideSwitch: "Não",
+        //     rightSideSwitch: "Sim",
+        //     checked: runnyNose,
+        //     setChecked: setRunnyNose,
+        // },
+        // {
+        //     title: "Você apresenta diarreia ?",
+        //     leftSideSwitch: "Não",
+        //     rightSideSwitch: "Sim",
+        //     checked: diarrhea,
+        //     setChecked: setDiarrhea,
+        // },
     ];
 
     const processResults = async () => {
@@ -107,11 +107,9 @@ const CovidForm = () => {
                 cough,
                 difficultyBreathing,
                 soreThroat,
+                noSymptom,
                 pains,
                 nasalCongestion,
-                runnyNose,
-                diarrhea,
-                noSymptom,
             });
             const results = response.data.split(" ");
             if (results.length) {
@@ -183,8 +181,8 @@ const CovidForm = () => {
                         );
                     } else return null;
                 })}
-            {currentStage === 10 && (
-                <Slide in={currentStage === 10} direction="left">
+            {currentStage === 8 && (
+                <Slide in={currentStage === 8} direction="left">
                     <Grid item xs={12} sm={6}>
                         <Paper style={{ padding: "5rem" }} elevation={2}>
                             <Typography
@@ -228,8 +226,8 @@ const CovidForm = () => {
                     </Grid>
                 </Slide>
             )}
-            {currentStage === 11 && (
-                <Slide in={currentStage === 11} direction="left">
+            {currentStage === 9 && (
+                <Slide in={currentStage === 9} direction="left">
                     <Grid item xs={12} sm={6}>
                         <Paper style={{ padding: "5rem" }} elevation={2}>
                             <Typography

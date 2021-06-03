@@ -12,7 +12,10 @@ const args = process.argv;
 app.post("/", (req, res) => {
     let dataToSend;
 
-    const python = spawn("python3", [args[2]]);
+    const parameters = Object.entries(req.body).map(([key, value]) =>
+        value ? 1 : 0
+    );
+    const python = spawn("python3", [args[2], parameters]);
 
     python.stdout.on("data", (data) => {
         console.log("pipe data from python script ...");
